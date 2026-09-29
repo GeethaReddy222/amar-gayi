@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Marcellus&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-maroon: #6b1d1d;
+  --color-deep-maroon: #4a0e0e;
+  --color-rich-red: #9b1b1b;
+  --color-antique-gold: #c9a227;
+  --color-warm-gold: #d4af37;
+  --color-ivory: #fdf8ee;
+  --color-cream: #f5ecd7;
+  --color-warm-orange: #e8731d;
+  --color-dark-brown: #3d2414;
+}
+
+@layer base {
+  body {
+    font-family: 'Marcellus', serif;
+    background-color: #4a0e0e;
+    color: #fdf8ee;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+  .font-body {
+    font-family: 'Marcellus', serif;
+  }
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #f0d97a 50%, #c9a227 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #c9a227 0%, #f0d97a 50%, #c9a227 100%);
+  }
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, #c9a227, #f0d97a, #c9a227) 1;
+  }
+  .shadow-gold-glow {
+    box-shadow: 0 0 30px rgba(201, 162, 39, 0.3), 0 0 60px rgba(201, 162, 39, 0.15);
+  }
+  .text-shadow-gold {
+    text-shadow: 0 2px 10px rgba(201, 162, 39, 0.4), 0 0 30px rgba(212, 175, 55, 0.3);
+  }
+  .text-shadow-dark {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #4a0e0e;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c9a227, #9b7c1a);
+  border-radius: 4px;
+}
+
+/* Diya flame flicker animation */
+@keyframes flame-flicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); opacity: 1; }
+  25% { transform: scale(1.05) rotate(1deg); opacity: 0.92; }
+  50% { transform: scale(0.95) rotate(-1deg); opacity: 1; }
+  75% { transform: scale(1.03) rotate(1deg); opacity: 0.95; }
+}
+.animate-flame-flicker {
+  animation: flame-flicker 1.5s ease-in-out infinite;
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    #c9a227 0%,
+    #f0d97a 25%,
+    #fff8dc 50%,
+    #f0d97a 75%,
+    #c9a227 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Slow spin for rangoli */
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-slow-spin {
+  animation: slow-spin 60s linear infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
